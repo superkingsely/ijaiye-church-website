@@ -215,7 +215,7 @@ export default function Header() {
                       {itemsOrPath.map(({ name: itemName, path: itemPath }) => (
                         <li key={itemName}>
                           <Link
-                            href={itemPath}
+                            href={itemPath!}
                             className="text-gray-300 hover:text-yellow-400"
                             onClick={() => setMenuOpen(false)}
                           >
