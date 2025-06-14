@@ -19,3 +19,30 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+.bg-hero{
+  background-image: url(../../public/images/mfm-ijaiye-pics.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+}
+.bg-hero1{
+  background-image: url(../../public/images/Mountain\ of\ Fire\ and\ Miracles\ Ministry\ Logo\ PNG\ Vector\ \(SVG\)\ Free\ Download.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+}
+.pup-btn{
+  background-color: purple;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+}
+.org-btn{
+  border: 2px solid orangered;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  
+}

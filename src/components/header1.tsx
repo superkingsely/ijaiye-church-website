@@ -1,44 +1,18 @@
+"use client"
 import React from 'react'
 import img1 from '../../public/images/Mountain of Fire and Miracles Ministry Logo PNG Vector (SVG) Free Download.jpg';
 import Image from 'next/image';
-interface Menu{
-    name:string,
-    path:string,
-    submenu?:Menu[]|any
-}
+import { Menu, useNavstate } from '@/stores/navStore';
+import { FaChevronDown } from 'react-icons/fa'
+import { HiMenu ,HiX } from 'react-icons/hi'
+import Link from 'next/link';
+
+
+
 const Header1 = () => {
-    const navData:Menu[]=[
-        {
-            name:'Home',
-            path:'/'
-        },
-        {
-            name:'Who We Are',
-            path:''
-        },
-        {
-            name:'What We Do',
-            path:''
-        },
-        {
-            name:'Resource',
-            path:''
-        },
-        {
-            name:'Contact',
-            path:''
-        },
-        {
-            name:'Live',
-            path:''
-        },
-        {
-            name:'Give',
-            path:''
-        },
-    ]
+const {menu,isOpen,handleOpen}= useNavstate()
   return (
-    <header className='sticky top-0 left-0 w-full min-h-[10vh] border ' >
+    <header className='fixed top-0 left-0 w-full min-h-[10vh] border z-[99] text-white ' >
         <div className="header-content relative  max-w-[1200px] mx-auto min-h-[10vh] flex justify-between items-center px-[20px] sm:px-0 ">
             {/* logo */}
             <div className="text-[15px] leading-[20px] font-bold flex items-center gap-[10px]">
@@ -54,10 +28,13 @@ const Header1 = () => {
             <nav className='hidden sm:block ' >
                 <ul className='flex gap-[30px]  ' >
                     {
-                        navData.map((obj:Menu)=>{
+                        menu.map((obj:Menu,index)=>{
                             return(
                                 <>
-                                    <li><a href="">{obj.name}</a></li>
+                                    <li key={index} > <Link href={''} className='flex items-center gap-[5px] ' >
+                                    {obj.name}
+                                        {obj.submenu&&<FaChevronDown/>}
+                                    </Link> </li>
                                 </>
                             )
                         })
@@ -67,14 +44,21 @@ const Header1 = () => {
             </nav>
             {/* hamburger menu */}
             <div
+            onClick={handleOpen}
             className="sm:hidden text-[black] text-2xl cursor-pointer"
             aria-label="Toggle menu"
             >
-                ☰
+                <HiMenu/>
             </div>
             {/* mobile nav */}
-            <nav className='sm:hidden border w-[50%] h-[100vh] bg-[#eee] absolute right-0 top-0 z-[50] ' >
-                <div className="close">close</div>
+            <nav className={`sm:hidden border overflow-hidden ${isOpen?'w-[50%]':'w-[0%]'}  transition-all duration-1000 h-[100vh] bg-[#eee] absolute right-0 top-0 z-[50]`} >
+                <div 
+                onClick={handleOpen}
+                className="close flex justify-center ">
+                    <div className="text-black">
+                        <HiX/>
+                    </div>
+                </div>
                 <ul>
                     mobile
                 </ul>
