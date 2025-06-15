@@ -1,5 +1,6 @@
 # 🚀 My Portfolio Website
-
+<!-- // eslint-disable-next-line @typescript-eslint/no-explicit-any -->
+<!-- {/* eslint-disable-next-line @next/next/no-img-element */} -->
 Welcome! This is my professional portfolio showcasing my skills and projects as a web developer.
 
 ## ✨ About Me
