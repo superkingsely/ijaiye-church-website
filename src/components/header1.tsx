@@ -12,7 +12,7 @@ import Link from 'next/link';
 const Header1 = () => {
 const {menu,isOpen,handleOpen}= useNavstate()
   return (
-    <header className='fixed top-0 left-0 w-full min-h-[10vh] border z-[99] text-white ' >
+    <header className='fixed top-0 left-0 w-full min-h-[10vh]  z-[99] text-white ' >
         <div className="header-content relative  max-w-[1200px] mx-auto min-h-[10vh] flex justify-between items-center px-[20px] sm:px-0 ">
             {/* logo */}
             <div className="text-[15px] leading-[20px] font-bold flex items-center gap-[10px]">
