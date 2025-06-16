@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="absolute top-0 left-0 bg-[rgba(0,0,0,0.2)] min-h-[100vh] w-full ">
           
         <div className="section-content max-w-[1200px] w-[100%] border-[2px] border-red-500  min-h-[80vh] mt-[10vh] mx-auto  text-white flex items-center flex-col ">
-            <div className="h1 flex justify-center text-[50px] font-[700] mt-[100px] ">
+            <div className="h1 flex justify-center  text-[20px] sm:text-[50px] font-[700] mt-[100px] ">
               <span className='text-center ' >{heroh1[count]}</span>
             </div>
             <div className="p flex justify-center flex-col max-w-[530px] ">
