@@ -8,7 +8,7 @@ import { HiChevronRight, HiChevronLeft} from 'react-icons/hi'
 const HeroSection = () => {
   const {count,heroh1,herop,herop1}=useHerostore()
   return (
-    <section className="section relative flex justify-center mt-[0] border-blue-800 min-h-[100vh] border-[4px] bg-hero " id="home"   >
+    <section className="section bg-[#eee] relative flex justify-center mt-[0] border-blue-800 min-h-[100vh] border-[4px] bg-hero " id="home"   >
       <div className="  absolute top-0 left-0 bg-[rgba(0,0,0,0.2)] min-h-[100vh] w-full ">
           
         <div className=" px-[20px] sm:px-[0px] section-content max-w-[1200px] w-[100%] border-[2px] border-red-500  min-h-[80vh] mt-[10vh] mx-auto  text-white flex items-center flex-col ">
