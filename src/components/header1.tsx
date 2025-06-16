@@ -19,7 +19,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
             <div className="img w-[50px] h-[50px] rounded-full overflow-hidden">
                 <Image src={img1} alt="Mfm Ijaiye Mega Region IV Logo" />
             </div>
-            <div className="logo-write-up flex flex-col items-center text-white">
+            <div className="logo-write-up hidden sm:flex flex-col items-center text-white">
                 <span>Mfm Ijaiye</span>
                 <span>Mega Region IV</span>
             </div>

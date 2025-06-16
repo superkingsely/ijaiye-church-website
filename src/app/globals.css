@@ -46,3 +46,8 @@ body {
   border-radius: 5px;
   
 }
+@media (max-width:600px) {
+  .bg-hero{
+    background-size: 500px;
+  }
+}
