@@ -1,19 +1,34 @@
 
 "use client"
 import { useHerostore } from '@/stores/heroStore'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HiChevronRight, HiChevronLeft} from 'react-icons/hi'
 
 
 const HeroSection = () => {
-  const {count,heroh1,herop,herop1}=useHerostore()
+  const count = useHerostore((state) => state.count);
+const heroh1 = useHerostore((state) => state.heroh1);
+const herop = useHerostore((state) => state.herop);
+const herop1 = useHerostore((state) => state.herop1);
+const autoSlide = useHerostore((state) => state.autoSlide);
+const next = useHerostore((state) => state.next);
+const prev = useHerostore((state) => state.prev);
+
+  useEffect(()=>{
+    if(!autoSlide)return
+    const interval=setInterval(()=>{
+      useHerostore.getState().next();
+      console.log('okay')
+    },2000)
+    return()=>clearInterval(interval)
+  },[autoSlide])
   return (
     <section className="section bg-[#eee] relative flex justify-center mt-[0] border-blue-800 min-h-[100vh] border-[4px] bg-hero " id="home"   >
       <div className="  absolute top-0 left-0 bg-[rgba(0,0,0,0.2)] min-h-[100vh] w-full ">
           
-        <div className=" px-[20px] sm:px-[0px] section-content max-w-[1200px] w-[100%] border-[2px] border-red-500  min-h-[80vh] mt-[10vh] mx-auto  text-white flex items-center flex-col ">
+        <div className=" px-[20px] sm:px-[0px] section-content max-w-[1200px] w-[100%] border-[2px] border-red-500  min-h-[80vh]  mx-auto  text-white flex items-center flex-col ">
             <div className="h1 flex justify-center  text-[25px] sm:text-[50px] font-[700] mt-[100px] ">
-              <span className='text-center ' >{heroh1[count]}</span>
+              <span className='text-center  ' >{heroh1[count]}</span>
             </div>
             <div className="p flex justify-center flex-col max-w-[530px] ">
               <span className='text-center ' >{herop[count]}</span> <br />
@@ -32,6 +47,7 @@ const HeroSection = () => {
                   <HiChevronLeft/>
                 </div>
                  <div 
+                 onClick={next}
                 className="next w-[50px] h-[50px] rounded-full bg-[rgba(0,0,0,0.3)] border flex justify-center items-center text-[40px] absolute right-0 top-[50%] cursor-pointer ">
                   <HiChevronRight/>
                 </div>

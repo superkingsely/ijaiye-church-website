@@ -31,7 +31,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
                         menu.map((obj:Menu,index)=>{
                             return(
                                 <>
-                                    <li key={index} > <Link href={''} className='flex items-center gap-[5px] ' >
+                                    <li key={obj.name} > <Link href={''} className='flex items-center gap-[5px] ' >
                                     {obj.name}
                                         {obj.submenu&&<FaChevronDown/>}
                                     </Link> </li>
@@ -51,7 +51,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
                 <HiMenu/>
             </div>
             {/* mobile nav */}
-            <nav className={`sm:hidden border overflow-hidden ${isOpen?'w-[50%]':'w-[0%]'}  transition-all duration-1000 h-[100vh] bg-[#eee] absolute right-0 top-0 z-[50]`} >
+            <nav className={`sm:hidden  overflow-hidden ${isOpen?'w-[50%]':'w-[0%]'}  transition-all duration-1000 h-[100vh] bg-[#eee] absolute right-0 top-0 z-[50]`} >
                 <div 
                 onClick={handleOpen}
                 className="close flex justify-center ">
@@ -59,8 +59,19 @@ const {menu,isOpen,handleOpen}= useNavstate()
                         <HiX/>
                     </div>
                 </div>
-                <ul>
-                    mobile
+                <ul className=' flex flex-col w-full items-center pt-[30px] gap-[10px] ' >
+                    {
+                        menu.map((obj:Menu,index)=>{
+                            return(
+                                <>
+                                    <li key={obj.name} > <Link href={''} className='flex items-center gap-[5px] ' >
+                                    {obj.name}
+                                        {obj.submenu&&<FaChevronDown/>}
+                                    </Link> </li>
+                                </>
+                            )
+                        })
+                    }
                 </ul>
             </nav>
         </div>
