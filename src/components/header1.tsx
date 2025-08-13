@@ -30,12 +30,12 @@ const {menu,isOpen,handleOpen}= useNavstate()
                     {
                         menu.map((obj:Menu,index)=>{
                             return(
-                                <>
-                                    <li key={obj.name} > <Link href={''} className='flex items-center gap-[5px] ' >
+                                
+                                    <li key={index} > <Link href={''} className='flex items-center gap-[5px] ' >
                                     {obj.name}
                                         {obj.submenu&&<FaChevronDown/>}
                                     </Link> </li>
-                                </>
+                                
                             )
                         })
                     }
