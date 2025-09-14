@@ -28,13 +28,35 @@ const {menu,isOpen,handleOpen}= useNavstate()
             <nav className='hidden sm:block ' >
                 <ul className='flex gap-[30px]  ' >
                     {
-                        menu.map((obj:Menu,index)=>{
+                        menu.map((obj:Menu,index:number)=>{
                             return(
                                 
-                                    <li key={index} > <Link href={''} className='flex items-center gap-[5px] ' >
+                                    <li className='group relative inline-block ' key={index} > <Link href={''} className='  flex items-center gap-[5px] ' >
                                     {obj.name}
-                                        {obj.submenu&&<FaChevronDown/>}
-                                    </Link> </li>
+                                    {obj.submenu&&<FaChevronDown/>}
+                                    </Link> 
+                                    {
+                                        obj.submenu&&(
+                                            console.log(obj.submenu),
+                                        <div className="submenu invisible  opacity-0 group-hover:visible group-hover:opacity-100  pointer-events-none group-hover:pointer-events-auto
+        transition-all duration-300  text-white bg-purple-900 px-[20px] py-[20px] my-[5vh]  absolute top-[20%] left-0  ">
+                                            <ul className='flex flex-col gap-[15px] w-[300px] ' >
+                                                {
+                                                    obj.submenu.map((obj:Menu,index:number)=>{
+                                                        return(
+                                                            <li key={index} className="">
+                                                                <Link href={''}>
+                                                                     {obj.name.toUpperCase()}
+                                                                </Link>
+                                                            </li>
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
+                                        )
+                                    }
+                                    </li>
                                 
                             )
                         })
@@ -51,7 +73,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
                 <HiMenu/>
             </div>
             {/* mobile nav */}
-            <nav className={`sm:hidden  overflow-hidden ${isOpen?'w-[50%]':'w-[0%]'}  transition-all duration-1000 h-[100vh] bg-[#eee] absolute right-0 top-0 z-[50]`} >
+            <nav onClick={handleOpen}  className={`sm:hidden  overflow-hidden ${isOpen?'w-[50%]':'w-[0%]'}  transition-all duration-1000 h-[100vh] bg-[#eee] absolute right-0 top-0 z-[50]`} >
                 <div 
                 onClick={handleOpen}
                 className="close flex justify-center ">
@@ -61,12 +83,12 @@ const {menu,isOpen,handleOpen}= useNavstate()
                 </div>
                 <ul className=' flex flex-col w-full items-center pt-[30px] gap-[10px] ' >
                     {
-                        menu.map((obj:Menu,index)=>{
+                        menu.map((obj:Menu,index:number)=>{
                             return(
                                 <>
-                                    <li key={obj.name} > <Link href={''} className='flex items-center gap-[5px] ' >
+                                    <li key={index} > <Link href={''} className='flex items-center gap-[5px] ' >
                                     {obj.name}
-                                        {obj.submenu&&<FaChevronDown/>}
+                                    {obj.submenu&&<FaChevronDown/>}
                                     </Link> </li>
                                 </>
                             )
