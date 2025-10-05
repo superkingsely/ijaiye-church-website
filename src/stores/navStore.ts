@@ -20,7 +20,7 @@ export const useNavstate=create<Navstate>((set)=>({
         },
         {
             name:'Who We Are',
-            path:'',
+            path:'/projects',
             submenu:[
                 {
                 name:'History',

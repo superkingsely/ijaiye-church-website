@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbarr from '../../components/Rough'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <Navbarr/>
+    </div>
   )
 }
 

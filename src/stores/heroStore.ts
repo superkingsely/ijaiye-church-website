@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 interface Herostate{
     count:number,
     autoSlide:boolean,
@@ -11,7 +12,7 @@ interface Herostate{
 }
 export const useHerostore=create<Herostate>((set)=>({
     count:0,
-    autoSlide:false,
+    autoSlide:true,
     heroh1:['WELCOME TO THE MOUNTAIN OF FIRE AND MIRACLES MINISTRIES',' WORSHIP WITH US TODAY YOU ARE WELCOME '],
     herop:[` "Nobody comes to the Mountain of Fire and Miracles Ministries by chance.
 If you are here, God brought you here." `,` "But upon mount Zion shall be deliverance, and there shall be holiness;

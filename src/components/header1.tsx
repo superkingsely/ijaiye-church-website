@@ -31,7 +31,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
                         menu.map((obj:Menu,index:number)=>{
                             return(
                                 
-                                    <li className='group relative inline-block ' key={index} > <Link href={''} className='  flex items-center gap-[5px] ' >
+                                    <li className='group relative inline-block ' key={index} > <Link href={obj.path} className='  flex items-center gap-[5px] ' >
                                     {obj.name}
                                     {obj.submenu&&<FaChevronDown/>}
                                     </Link> 
@@ -39,7 +39,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
                                         obj.submenu&&(
                                             console.log(obj.submenu),
                                         <div className="submenu invisible  opacity-0 group-hover:visible group-hover:opacity-100  pointer-events-none group-hover:pointer-events-auto
-        transition-all duration-300  text-white bg-purple-900 px-[20px] py-[20px] my-[5vh]  absolute top-[20%] left-0  ">
+                                        transition-all duration-300  text-white bg-purple-900 px-[20px] py-[20px] my-[5vh]  absolute top-[20%] left-0  ">
                                             <ul className='flex flex-col gap-[15px] w-[300px] ' >
                                                 {
                                                     obj.submenu.map((obj:Menu,index:number)=>{
@@ -64,6 +64,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
                    
                 </ul>
             </nav>
+
             {/* hamburger menu */}
             <div
             onClick={handleOpen}
@@ -72,6 +73,7 @@ const {menu,isOpen,handleOpen}= useNavstate()
             >
                 <HiMenu/>
             </div>
+            
             {/* mobile nav */}
             <nav onClick={handleOpen}  className={`sm:hidden  overflow-hidden ${isOpen?'w-[50%]':'w-[0%]'}  transition-all duration-1000 h-[100vh] bg-[#eee] absolute right-0 top-0 z-[50]`} >
                 <div 
