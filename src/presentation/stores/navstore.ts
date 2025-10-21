@@ -1,26 +1,106 @@
 import { create } from "zustand";
 
-interface NavUrl{
+export interface NavUrl{
     name: string;
-    url: string;
+    url?: string|undefined;
     submenu?: NavUrl[];
 }
 
 interface NavState{
     isOpen: boolean;
-    items: NavUrl[];
     toggle: () => void;
-    activeMenu: string | null;
-    setActiveMenu: (menu: string | null) => void;
+    scrolled: boolean|number;
+    setScrolled: (scrolled: boolean|number) => void;
+    items: NavUrl[];
+   
 }
 
 export const useNavStore = create<NavState>(set=>{
     return {
         isOpen: false,
-        items: [],
-        toggle: () => set(state => ({ isOpen: !state.isOpen }))
-        ,
-        activeMenu: null,
-        setActiveMenu: (menu) => set({ activeMenu: menu })
+        toggle: () => set(state => ({ isOpen: !state.isOpen })),
+        scrolled: false,
+        setScrolled: (scrolled: boolean|number) => set({ scrolled }),
+        items: [
+            {
+                name: "HOME",
+                url: "/"
+            },
+            {
+                name: "WHO WE ARE",
+                submenu: [
+                    {
+                        name: "HISTORY",
+                        url: "/about"
+                    },
+                    {
+                        name: "MISSION & VISION",
+                        url: "/about"
+                    },
+                    {
+                        name: "OUR BELIEFS",
+                        url: "/about"
+                    },
+                    {
+                        name: "ADMINISTRATION",
+                        url: "/about"
+                    },
+                    {
+                        name: "GROUPS",
+                        url: "/about"
+                    },
+                    {
+                        name: "DADDY & MUMMY G.O ",
+                        url: "/about"
+                    },
+                ]
+            },
+            {
+                name: "WHAT WE DO",
+                submenu: [
+                    {
+                        name: "MINISTRIES",
+                        url: "/ministries"
+                    },
+                    {
+                        name: "MFM SCHOOLS",
+                        url: "/ministries"
+                    },
+                    {
+                        name: "SPECIAL PROGRAMS",
+                        url: "/ministries"
+                    },
+                ]
+            },
+            {
+                name: "RESOURCES",
+                submenu: [
+                    {
+                        name: "PMCH",
+                        url: "/events"
+                    },
+                    {
+                        name: "DOWNLOADS",
+                        url: "/events"
+                    },
+                    {
+                        name: "MUSIC VIDEOS",
+                        url: "/events"
+                    },
+                ]
+            },
+            {
+                name: "Contact Us",
+                url: "/contact"
+            },
+            {
+                name: "LIVE",
+                url: "/live"
+            },
+            {
+                name: "GIVE",
+                url: "/contact"
+            }
+        ],
     }
 })

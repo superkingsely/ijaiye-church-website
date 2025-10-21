@@ -1,0 +1,21 @@
+
+
+onst Header = () => {
+
+    const{scrolled,setScrolled}= useNavStore();
+
+    useEffect(() => { 
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    },[setScrolled])
+
+  return (
+    <header>
+        <div className={`container fixed top-0 z-50 border mx-auto flex justify-between items-center py-4 px-6 transition-all duration-300 ${scrolled ? ' bg-pink-600  shadow-md' : 'bg-transparent'}`}>
+            <div className="logo text-2xl font-bold">Church Logo</div>

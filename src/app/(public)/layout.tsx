@@ -1,19 +1,19 @@
 
 
-import "../styles/globals.css";
+import Header from "@/presentation/components/Header";
+import "../../styles/globals.css";
 
 export const metadata = {
   title: "Church Website",
   description: "A clean and modern church website built with Next.js",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+   <div className="app border border-amber-300 ">
+        <Header />
         {children}
-      </body>
-    </html>
+   </div>
   );
 }
 

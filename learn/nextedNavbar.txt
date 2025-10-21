@@ -1,5 +1,46 @@
 
 
+'use client'
+import React from 'react'
+
+const Header1 = () => {
+  return (
+    <header>
+        <div className="header-content">
+            <span className="logo"></span>
+            <nav>
+                <ul  className="nav-links flex gap-8 px-6 py-4">
+                    <li>Home</li>
+
+                    <li className="dropdown relative group border ">
+                        <button className="hover:text-yellow-400 transition focus:outline-none">About Us</button>
+                        {/* hidden=opacity-0 scale-95 pointer-events-none */}
+                        {/* block=opacity-100 scale-100 pointer-events-auto */}
+                        <ul className="submenu absolute left-0 top-0 mt-0  w-48 bg-white text-blue-900 rounded-md  scale-10 border  group-hover:top-[20px]
+                        group-hover:scale-100  
+                        ">
+                            <li className='hover:bg-amber-200 cursor-pointer' onClick={()=>{console.log('cool');
+                            }} >Our Mission</li>
+                            <li className='hover:bg-amber-200 cursor-pointer' onClick={()=>{console.log('cool');
+                            }} >Our Vision</li>
+                            <li className='hover:bg-amber-200 cursor-pointer' onClick={()=>{console.log('cool');
+                            }} >Our Team</li>
+                        </ul>
+                    </li>
+                    <li>Ministries</li>
+                    <li>Events</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+  )
+}
+
+export default Header1
+
+##########################################################################
+
 Excellent — that’s a really good question, Chijioke 👏
 
 Since you want to **learn this properly and easily**, let’s break it into simple steps. What you just built is a **CSS-driven dropdown navbar** using **Tailwind’s `group` and `focus-within` utilities**, which are common in professional React / Next.js projects.
