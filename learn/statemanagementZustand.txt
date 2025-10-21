@@ -1,1 +1,13 @@
 npm install zustand
+
+import { create } from "zustand";
+
+interface MenuState {
+  activeMenu: string | null;
+  setActiveMenu: (menu: string | null) => void;
+}
+
+export const useMenuStore = create<MenuState>((set) => ({
+  activeMenu: null,
+  setActiveMenu: (menu) => set({ activeMenu: menu }),
+}));
