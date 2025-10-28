@@ -18,7 +18,10 @@ interface NavState{
 export const useNavStore = create<NavState>(set=>{
     return {
         isOpen: false,
-        toggle: () => set(state => ({ isOpen: !state.isOpen })),
+        toggle: () => set(state => {
+            console.log(state,'heart',state.isOpen);
+            return{ isOpen: !state.isOpen }
+        }),
         scrolled: false,
         setScrolled: (scrolled: boolean|number) => set({ scrolled }),
         items: [

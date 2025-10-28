@@ -24,3 +24,60 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* -------------------------------- */
+/* .subsubmenu{
+  background: red;
+} */
+ header li:hover{
+    color: purple;
+ }
+.header-content{
+  background-color: red;
+}
+
+/* ---------- Menu show/hide behavior (direct-child selectors) ---------- */
+
+/* Default: hide submenus */
+.menu-item > .submenu,
+.submenu-item > .subsubmenu {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+/* Show submenu only when the direct parent <li> is hovered */
+.menu-item:hover > .submenu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Show subsubmenu only when its own submenu-item is hovered */
+.submenu-item:hover > .subsubmenu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Small safety: ensure submenus occupy no extra space when hidden */
+.menu-item > .submenu,
+.submenu-item > .subsubmenu {
+  display: block; /* keep block so absolute positioning works */
+  position: absolute;
+}
+
+/* Optional: make sure body/background isn't visible during transitions */
+header,
+nav {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* If you use a transform origin animation, optionally set origins */
+.menu-item > .submenu { transform-origin: top left; }
+.submenu-item > .subsubmenu { transform-origin: left top; }
+
+/* Tweak submenu padding/style if needed (you already used Tailwind; this is minimal) */
+.submenu { padding: .375rem 0; } /* 6px top/bottom padding */
+.subsubmenu { padding: .375rem 0; }

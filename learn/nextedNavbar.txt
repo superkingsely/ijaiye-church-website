@@ -1,5 +1,17 @@
 
 
+
+ <li className='group/submenu relative' key={subitem.name}>
+                                            <Link href={subitem.url ? subitem.url : '#'} className="text-gray-400 text-sm hover:text-purple-300">{subitem.name}</Link>
+                                            {/* nexted */}
+                                            {
+                                                subitem.submenu &&(
+                                                    <ul className='ml-4 absolute top-0 right-[-200px] border cursor scale-0 px-[15px] py-2.5 group-hover/submenu:scale-100 bg-white flex flex-col gap-2.5 rounded-lg  text-gray-400 w-[200px] '>
+                                                        {
+                                                            subitem.submenu.map((anothersub)=>{
+
+
+
 'use client'
 import React from 'react'
 
