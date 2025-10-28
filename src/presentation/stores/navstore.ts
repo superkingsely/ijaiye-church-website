@@ -60,7 +60,16 @@ export const useNavStore = create<NavState>(set=>{
                 submenu: [
                     {
                         name: "MINISTRIES",
-                        url: "/ministries"
+                        submenu: [
+                            {
+                                name:'MEN OF VALOR',
+                                url:'/MOV'
+                            },
+                            {
+                                name:'TEENAGE MINISTRY',
+                                url:'/MOV'
+                            },
+                        ]
                     },
                     {
                         name: "MFM SCHOOLS",
