@@ -12,18 +12,46 @@ interface NavState{
     scrolled: boolean|number;
     setScrolled: (scrolled: boolean|number) => void;
     items: NavUrl[];
+    isOpenDropdown:boolean;
+    dropdown:(e:any)=>void;
    
 }
 
-export const useNavStore = create<NavState>(set=>{
+export const useNavStore = create<NavState>((set,get)=>{
     return {
         isOpen: false,
         toggle: () => set(state => {
-            console.log(state,'heart',state.isOpen);
+            // console.log(state,'heart',state.isOpen);
             return{ isOpen: !state.isOpen }
         }),
         scrolled: false,
         setScrolled: (scrolled: boolean|number) => set({ scrolled }),
+        isOpenDropdown:false,
+        dropdown:(e:any)=>{
+            // get().isOpen=false
+            set(state=>{
+                return{isOpen:false}
+            })
+            let array=get().items
+            const pickedarry=array.filter(obj=>obj.name===e.target.innerText)
+            if(pickedarry[0].name===e.target.innerText){
+                // console.log('good');
+
+                set(state=>{
+                    return{isOpenDropdown:!state.isOpenDropdown}
+                })
+                
+            }else{
+                set(state=>{
+                    return{isOpenDropdown:false}
+                })
+            }
+            console.log(pickedarry);
+            
+                console.log(e.target.innerText)
+                
+                // console.log(get().items)
+        },
         items: [
             {
                 name: "HOME",

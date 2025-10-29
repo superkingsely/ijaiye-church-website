@@ -248,7 +248,7 @@ import { li, ul } from 'framer-motion/client';
 
 const Header = () => {
 
-    const{scrolled,setScrolled,items,toggle,isOpen}= useNavStore();
+    const{scrolled,setScrolled,items,toggle,isOpen,dropdown,isOpenDropdown}= useNavStore();
 
     useEffect(() => { 
         const handleScroll = () => {
@@ -307,19 +307,19 @@ const Header = () => {
 
             {/* mobile */}
             <nav onClick={toggle} className={`mobile transition-all duration-500 ease-linear md:hidden absolute top-0  right-0 border  ${isOpen?'w-screen bg-[rgba(0,0,0,0.67)]  ':'w-0 overflow-hidden bg-[rgba(0,0,0,0)] '}  h-screen visible flex justify-end  `}  >
-                <ul onClick={toggle} className={` transition-all duration-1000 ease-linear flex flex-col space-y-4 border bg-purple-500  ${isOpen?'w-[50vw]':'w-0 overflow-hidden '}   w-[50vw] pl-[5px] pt-5  `}>
+                <ul onClick={toggle} className={` transition-all duration-1000 ease-linear flex flex-col space-y-4 border bg-purple-500  ${isOpen?'w-[50vw] bg-amber-400 ':'w-0 overflow-hidden '}   w-[50vw] pl-[5px] pt-5  `}>
                    {
                     items.map((item: NavUrl) => (
-                        <li key={item.name} className="  ">
-                            <Link onClick={toggle}  href={item.url ? item.url : '#'} className=" hover:text-gray-300 text-white ">{item.name}</Link>
+                        <li onClick={ item.submenu? (e)=>{dropdown(e)}:()=>{console.log('nothing')}}  key={item.name} className={` transition-all duration-1000 ease-linear ${item.submenu?'border   ':''} ${isOpenDropdown?' h-[200px]  ':' h-[30px] overflow-hidden '} `}>
+                            <Link onClick={item.submenu? ()=>{}:toggle}  href={item.url ? item.url : '#'} className=" hover:text-gray-300 text-white ">{item.name}</Link>
                             {item.submenu && (
 
-                                <ul className="ml-4  cursor  px-[15px] py-[10px]   " >
+                                <ul className="ml-4  cursor  px-[15px] py-2.5   " >
                                     {item.submenu.map((subitem) => (
                                         <li className='' key={subitem.name}>
                                             <Link href={subitem.url ? subitem.url : '#'} className="text-white hover:text-gray-300  ">{subitem.name}</Link>
                                             {subitem.submenu && (
-                                                <ul className="ml-4  cursor  px-[15px] py-[10px]   " >
+                                                <ul className="ml-4  cursor  px-[15px] py-2.5   " >
                                                     {subitem.submenu.map((anothersub) => (
                                                         <li key={anothersub.name}>
                                                             <Link href={anothersub.url ? anothersub.url : '#'}
