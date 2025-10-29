@@ -13,7 +13,7 @@ interface NavState{
     setScrolled: (scrolled: boolean|number) => void;
     items: NavUrl[];
     isOpenDropdown:boolean;
-    dropdown:(e:any)=>void;
+    dropdown:(e: React.MouseEvent<HTMLElement>)=>void;
    
 }
 
@@ -27,14 +27,14 @@ export const useNavStore = create<NavState>((set,get)=>{
         scrolled: false,
         setScrolled: (scrolled: boolean|number) => set({ scrolled }),
         isOpenDropdown:false,
-        dropdown:(e:any)=>{
+        dropdown:(e)=>{
             // get().isOpen=false
             set(state=>{
                 return{isOpen:false}
             })
-            let array=get().items
-            const pickedarry=array.filter(obj=>obj.name===e.target.innerText)
-            if(pickedarry[0].name===e.target.innerText){
+            const array=get().items
+            const pickedarry=array.filter(obj=>obj.name===e.currentTarget.innerText)
+            if(pickedarry[0].name===e.currentTarget.innerText){
                 // console.log('good');
 
                 set(state=>{
@@ -47,9 +47,9 @@ export const useNavStore = create<NavState>((set,get)=>{
                 })
             }
             console.log(pickedarry);
-            
-                console.log(e.target.innerText)
-                
+
+                console.log(e.currentTarget.innerText)
+
                 // console.log(get().items)
         },
         items: [

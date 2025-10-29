@@ -1,0 +1,10 @@
+
+
+
+✅ Tip:
+
+Prefer e.currentTarget over e.target — it’s safer and properly typed in React events.
+
+So final verdict:
+
+✅ Use React.MouseEvent<HTMLElement> for dropdown handlers (instead of any).
