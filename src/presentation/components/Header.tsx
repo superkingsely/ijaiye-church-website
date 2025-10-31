@@ -1,13 +1,4 @@
 
-<<<<<<< HEAD
-"use client"
-
-import React, { useEffect, useState } from 'react'
-import { NavUrl, useNavStore } from '../stores/navstore';
-import Link from 'next/link';
-import { Home } from 'lucide-react';
-// import { li, ul } from 'framer-motion/client';
-=======
 
 "use client";
 
@@ -15,7 +6,6 @@ import React, { useEffect } from "react";
 import { useNavStore, NavUrl } from "../stores/navstore";
 import Link from "next/link";
 import { Home, X } from "lucide-react";
->>>>>>> feature/header
 
 const Header = () => {
   const {
@@ -36,7 +26,7 @@ const Header = () => {
   }, [setScrolled]);
 
   return (
-    <header className="fixed top-0 w-full z-[99]">
+    <header className="fixed top-0 w-full z-99">
       <div
         className={`flex justify-between items-center px-6 py-4 transition-all duration-300 ${
           scrolled ? "bg-purple-600 shadow-md" : "bg-transparent"
@@ -47,20 +37,20 @@ const Header = () => {
           Church Logo
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation */} 
         <nav className="hidden md:block">
           <ul className="flex space-x-4 text-white">
             {items.map((item) => (
               <li key={item.name} className="relative group/menu">
                 <Link
                   href={item.url || "#"}
-                  className="hover:text-yellow-300 font-semibold"
+                  className=" font-semibold"
                 >
                   {item.name}
                 </Link>
 
                 {item.submenu && (
-                  <ul className="absolute top-full left-0 mt-2 bg-white text-gray-700 rounded-lg shadow-md scale-0 group-hover/menu:scale-100 origin-top transition-transform duration-200 min-w-[200px]">
+                  <ul className="absolute top-full left-0 mt-1 bg-white text-gray-700 rounded-lg shadow-md scale-0 group-hover/menu:scale-100 origin-top transition-transform duration-200 min-w-[200px]">
                     {item.submenu.map((sub) => (
                       <li key={sub.name} className="relative group/submenu">
                         <Link
@@ -104,13 +94,14 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <nav
-        className={`fixed top-0 right-0 h-screen w-[70vw] bg-purple-800 text-white transform transition-transform duration-500 ease-in-out z-[98] ${
+        className={`fixed top-0 md:hidden right-0 h-screen w-[50vw] bg-purple-800 text-white transform transition-transform duration-500 ease-in-out z-98 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        {/* first */}
         <ul className="flex flex-col gap-3 p-6 mt-16">
           {items.map((item) => (
-            <li key={item.name} className="flex flex-col">
+            <li key={item.name} className="flex flex-col text-white  ">
               <button
                 className="flex justify-between items-center w-full text-left font-semibold"
                 onClick={() =>
@@ -128,27 +119,28 @@ const Header = () => {
                   </span>
                 )}
               </button>
-
+                {/* second */}
               {item.submenu && (
                 <ul
                   className={`overflow-hidden transition-all duration-500 ${
-                    activeDropdown === item.name ? "max-h-96" : "max-h-0"
+                    activeDropdown === item.name ? "max-h-96  " : "max-h-0"
                   } pl-4 mt-2`}
                 >
                   {item.submenu.map((sub) => (
-                    <li key={sub.name} className="py-1">
+                    <li key={sub.name} className="py-1 text-white ">
                       {sub.submenu ? (
                         <details className="group">
                           <summary className="cursor-pointer font-medium">
                             {sub.name}
                           </summary>
+                          {/* third */}
                           <ul className="pl-4 mt-2 space-y-1">
                             {sub.submenu.map((deep) => (
                               <li key={deep.name}>
                                 <Link
                                   href={deep.url || "#"}
                                   onClick={toggle}
-                                  className="text-sm block hover:text-yellow-300"
+                                  className="text-sm block text-white hover:text-yellow-300"
                                 >
                                   {deep.name}
                                 </Link>
@@ -160,7 +152,7 @@ const Header = () => {
                         <Link
                           href={sub.url || "#"}
                           onClick={toggle}
-                          className="text-sm hover:text-yellow-300"
+                          className="text-sm text-white hover:text-yellow-300"
                         >
                           {sub.name}
                         </Link>
@@ -169,6 +161,7 @@ const Header = () => {
                   ))}
                 </ul>
               )}
+
             </li>
           ))}
         </ul>

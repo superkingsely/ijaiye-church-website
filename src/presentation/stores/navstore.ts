@@ -7,53 +7,6 @@ export interface NavUrl {
   submenu?: NavUrl[];
 }
 
-<<<<<<< HEAD
-interface NavState{
-    isOpen: boolean;
-    toggle: () => void;
-    scrolled: boolean|number;
-    setScrolled: (scrolled: boolean|number) => void;
-    items: NavUrl[];
-    isOpenDropdown:boolean;
-    dropdown:(e: React.MouseEvent<HTMLElement>)=>void;
-   
-}
-
-export const useNavStore = create<NavState>((set,get)=>{
-    return {
-        isOpen: false,
-        toggle: () => set(state => {
-            // console.log(state,'heart',state.isOpen);
-            return{ isOpen: !state.isOpen }
-        }),
-        scrolled: false,
-        setScrolled: (scrolled: boolean|number) => set({ scrolled }),
-        isOpenDropdown:false,
-        dropdown:(e)=>{
-            // get().isOpen=false
-            set(state=>{
-                return{isOpen:false}
-            })
-            const array=get().items
-            const pickedarry=array.filter(obj=>obj.name===e.currentTarget.innerText)
-            if(pickedarry[0].name===e.currentTarget.innerText){
-                // console.log('good');
-
-                set(state=>{
-                    return{isOpenDropdown:!state.isOpenDropdown}
-                })
-                
-            }else{
-                set(state=>{
-                    return{isOpenDropdown:false}
-                })
-            }
-            console.log(pickedarry);
-
-                console.log(e.currentTarget.innerText)
-
-                // console.log(get().items)
-=======
 interface NavState {
   isOpen: boolean;
   toggle: () => void;
@@ -100,7 +53,6 @@ export const useNavStore = create<NavState>((set, get) => ({
             { name: "MEN OF VALOR", url: "/MOV" },
             { name: "TEENAGE MINISTRY", url: "/teenage" },
           ],
->>>>>>> feature/header
         },
         { name: "MFM SCHOOLS", url: "/ministries" },
         { name: "SPECIAL PROGRAMS", url: "/programs" },
