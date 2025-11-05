@@ -5,11 +5,15 @@ import "../styles/globals.css";
 export const metadata = {
   title: "Church Website",
   description: "A clean and modern church website built with Next.js",
+ 
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/images/mfm-logomain.jpg" type="image/jpg" />
+      </head>
       <body>
         {children}
       </body>

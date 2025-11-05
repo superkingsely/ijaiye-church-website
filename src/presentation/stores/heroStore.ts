@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { StaticImageData } from "next/image";
 
-import img1 from "../../../public/images/Mountain of Fire and Miracles Ministry Logo PNG Vector (SVG) Free Download.jpg";
+import img1 from "../../../public/images/mfm-logomain.jpg";
 import img2 from "../../../public/images/mfm-ijaiye-pics.png";
 
 export interface HeroObject {

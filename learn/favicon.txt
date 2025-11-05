@@ -1,0 +1,15 @@
+
+export const metadata = {
+  title: "Church Website",
+  description: "A clean and modern church website built with Next.js",
+  // icons: {
+  //   icon: "/public/images/mfm-logomain.jpg",
+  // },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/images/mfm-logomain.jpg" type="image/jpg" />
+      </head>
