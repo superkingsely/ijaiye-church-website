@@ -11,7 +11,7 @@ const Page = () => {
     <div onClick={toggle} className="border">
       <HeroSection />
       <AboutSection />
-      <NestedAccordion />
+      {/* <NestedAccordion /> */}
     </div>
   )
 }

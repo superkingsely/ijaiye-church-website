@@ -7,7 +7,7 @@ import { useNavStore, NavUrl } from "../stores/navstore";
 import Link from "next/link";
 import { Home, X } from "lucide-react";
 import Image from "next/image";
-import imgA from "../../../public/images/Mountain of Fire and Miracles Ministry Logo PNG Vector (SVG) Free Download.jpg";
+import imgA from "../../../public/images/mfm-logomain.jpg";
 
 const Header = () => {
   const {
