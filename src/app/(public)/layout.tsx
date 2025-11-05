@@ -2,6 +2,7 @@
 
 import Header from "@/presentation/components/Header";
 import "../../styles/globals.css";
+import Footer from "@/presentation/components/Footer";
 
 export const metadata = {
   title: "MFM Ijaiye Region 4 Website",
@@ -12,7 +13,10 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
   return (
    <div className="app border border-amber-300 ">
         <Header />
+        <main>
         {children}
+        </main>
+        <Footer />
    </div>
   );
 }
