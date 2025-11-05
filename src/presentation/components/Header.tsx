@@ -28,11 +28,9 @@ const Header = () => {
   }, [setScrolled]);
 
   return (
-    <header className="fixed top-0 w-full z-99">
+    <header className={`fixed top-0 w-full z-99 ${scrolled ? "bg-purple-600 shadow-md" : "bg-transparent"}`}>
       <div
-        className={`flex justify-between items-center px-6 py-4 transition-all duration-300 ${
-          scrolled ? "bg-purple-600 shadow-md" : "bg-transparent"
-        }`}
+        className={`flex max-w-[1200px] mx-auto justify-between items-center px-6 py-4 transition-all duration-300 `}
       >
         {/* Logo */}
         <div className="text-xl md:text-2xl font-bold text-white flex items-center gap-2 ">
