@@ -6,6 +6,8 @@ import React, { useEffect } from "react";
 import { useNavStore, NavUrl } from "../stores/navstore";
 import Link from "next/link";
 import { Home, X } from "lucide-react";
+import Image from "next/image";
+import imgA from "../../../public/images/Mountain of Fire and Miracles Ministry Logo PNG Vector (SVG) Free Download.jpg";
 
 const Header = () => {
   const {
@@ -33,8 +35,17 @@ const Header = () => {
         }`}
       >
         {/* Logo */}
-        <div className="text-xl md:text-2xl font-bold text-white">
-          Church Logo
+        <div className="text-xl md:text-2xl font-bold text-white flex items-center gap-2 ">
+          <div className="img w-[50px] h-[50px] rounded-[100%] overflow-hidden ">
+            <Image
+              src={imgA}
+              alt="Church Logo"
+              width={100}
+              height={100}
+              className="object-contain"
+            />
+          </div>
+          <span className="hidden md:inline">MFM IJAIYE REGION 4</span>
         </div>
 
         {/* Desktop Navigation */} 
