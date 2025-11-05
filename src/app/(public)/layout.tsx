@@ -4,7 +4,7 @@ import Header from "@/presentation/components/Header";
 import "../../styles/globals.css";
 
 export const metadata = {
-  title: "Church Website",
+  title: "MFM Ijaiye Region 4 Website",
   description: "A clean and modern church website built with Next.js",
 };
 
