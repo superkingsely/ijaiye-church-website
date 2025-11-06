@@ -8,7 +8,7 @@ import imgyoutube from '../../../public/images/social-media-pngitem-icons/whatsa
 
 const Footer = () => {
   return (
-    <footer className='' >
+    <footer className=' ' >
         <div className="footer-content max-w-[1200px] mx-auto ">
             <div className="ads-footer">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 bg-black text-white p-6 ">
