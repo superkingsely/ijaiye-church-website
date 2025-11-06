@@ -16,6 +16,11 @@ interface HeroState {
   next: () => void;
   prev: () => void;
   auto: () => void;
+
+   // ✅ Admin CRUD operations
+  addHero: (hero: HeroObject) => void;
+  updateHero: (index: number, updated: Partial<HeroObject>) => void;
+  deleteHero: (index: number) => void;
 }
 
 export const useHeroStore = create<HeroState>((set, get) => ({
@@ -49,4 +54,23 @@ export const useHeroStore = create<HeroState>((set, get) => ({
       get().next();
     }, 5000); // auto-switch every 5s
   },
+
+   // ✅ CRUD: add new hero view
+  addHero: (hero) =>
+    set((state) => ({
+      views: [...state.views, hero],
+    })),
+
+  // ✅ CRUD: update a hero by index
+  updateHero: (index, updated) =>
+    set((state) => ({
+      views: state.views.map((v, i) => (i === index ? { ...v, ...updated } : v)),
+    })),
+
+  // ✅ CRUD: delete a hero by index
+  deleteHero: (index) =>
+    set((state) => ({
+      views: state.views.filter((_, i) => i !== index),
+    })),
+
 }));
