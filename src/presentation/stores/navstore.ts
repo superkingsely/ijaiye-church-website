@@ -10,6 +10,7 @@ export interface NavUrl {
 interface NavState {
   isOpen: boolean;
   toggle: () => void;
+  closenav: () => void;
   scrolled: boolean;
   setScrolled: (scrolled: boolean) => void;
   items: NavUrl[];
@@ -20,6 +21,7 @@ interface NavState {
 export const useNavStore = create<NavState>((set, get) => ({
   isOpen: false,
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
+  closenav: () => set({ isOpen: false }),
   scrolled: false,
   setScrolled: (scrolled) => set({ scrolled }),
   activeDropdown: null,

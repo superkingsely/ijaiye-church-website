@@ -20,7 +20,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className=" app-admin flex min-h-screen bg-gray-100">
       {/* Sidebar */}
       <aside
         className={`fixed md:static inset-y-0 left-0 w-64 bg-blue-900 text-white flex flex-col z-50 transform transition-transform duration-300 ${

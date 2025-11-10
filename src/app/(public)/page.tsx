@@ -6,9 +6,9 @@ import NestedAccordion from '@/presentation/components/NestedAccordion'
 import React from 'react'
 
 const Page = () => {
-  const {toggle}=useNavStore()
+  const {closenav}=useNavStore()
   return (
-    <div onClick={toggle} className="border">
+    <div onClick={closenav} className="">
       <HeroSection />
       <AboutSection />
       

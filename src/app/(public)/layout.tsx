@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
-   <div className="app border border-amber-300 ">
+   <div className="app  ">
         <Header />
         <main>
         {children}
