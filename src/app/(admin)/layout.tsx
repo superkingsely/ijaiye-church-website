@@ -13,10 +13,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   const { sidebarOpen, toggleSidebar, closeSidebar } = useAdminStore();
 
   const navItems = [
-    { name: "Dashboard", href: "/dashboard", icon: Home },
-    { name: "Hero Section", href: "/dashboard/hero", icon: ImageIcon },
-    { name: "Members", href: "/dashboard/members", icon: Users },
-    { name: "Settings", href: "/dashboard/settings", icon: Settings },
+    { name: "Dashboard", href: "/admin", icon: Home },
+    { name: "Hero Section", href: "/admin/hero-manager", icon: ImageIcon },
+    { name: "Members", href: "/admin/members", icon: Users },
+    { name: "Settings", href: "/admin/settings", icon: Settings },
   ];
 
   return (
