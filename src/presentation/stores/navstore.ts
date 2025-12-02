@@ -39,11 +39,11 @@ export const useNavStore = create<NavState>((set, get) => ({
       name: "WHO WE ARE",
       submenu: [
         { name: "HISTORY", url: "/about" },
-        { name: "MISSION & VISION", url: "/about" },
-        { name: "OUR BELIEFS", url: "/about" },
-        { name: "ADMINISTRATION", url: "/about" },
-        { name: "GROUPS", url: "/about" },
-        { name: "DADDY & MUMMY G.O", url: "/about" },
+        { name: "MISSION & VISION", url: "/about/mission" },
+        { name: "OUR BELIEFS", url: "/about/beliefs" },
+        { name: "ADMINISTRATION", url: "/about/administration" },
+        { name: "GROUPS", url: "/about/groups" },
+        { name: "DADDY & MUMMY G.O", url: "/about/mummy-and-daddy-go" },
       ],
     },
     {
@@ -52,12 +52,17 @@ export const useNavStore = create<NavState>((set, get) => ({
         {
           name: "MINISTRIES",
           submenu: [
-            { name: "MEN OF VALOR", url: "/MOV" },
+            { name: "MEN OF VALOR", url: "/ministries/men-of-valor" },
             { name: "TEENAGE MINISTRY", url: "/ministries/teenage-ministry" },
           ],
         },
-        { name: "MFM SCHOOLS", url: "/ministries" },
-        { name: "SPECIAL PROGRAMS", url: "/programs" },
+        { name: "MFM SCHOOLS",
+           submenu: [
+            { name: "mfm school of counselling and peace studies", url: "/schools/mfm-school-of-counselling-and-peace-studies" },
+            { name: "mfm school of evangelism and church planting", url: "/schools/mfm-school-of-evangelism-and-church-planting" },
+          ],
+         },
+        { name: "SPECIAL PROGRAMS", url: "/special-programmes" },
       ],
     },
     {
